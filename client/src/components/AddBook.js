@@ -1,13 +1,21 @@
-import React from "react";
-import { useQuery } from "@apollo/client";
-import { getAuthorsQuery } from "../queries/queries";
+import React, { useState } from "react";
+import { useQuery, useMutation } from "@apollo/client";
+import {
+  getAuthorsQuery,
+  addBookMutation,
+  getBooksQuery,
+} from "../queries/queries";
 
 const AddBook = () => {
-  const { loading, error, data } = useQuery(getAuthorsQuery);
+  const [name, setName] = useState("");
+  const [genre, setGenre] = useState("");
+  const [authorId, setAuthorId] = useState("");
+  const { loading, data } = useQuery(getAuthorsQuery);
+  const [addBookMut] = useMutation(addBookMutation);
 
-  function displayAuthors() {
+  const displayAuthors = (loading, data) => {
     if (loading) {
-      return <option disabled>Loading Authors...</option>;
+      return <option disabled>Loading authors</option>;
     } else {
       return data.authors.map((author) => {
         return (
@@ -17,22 +25,43 @@ const AddBook = () => {
         );
       });
     }
-  }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addBookMut({
+      variables: {
+        name: name,
+        genre: genre,
+        authorId: authorId,
+      },
+      refetchQueries: [getBooksQuery],
+    });
+  };
+
   return (
-    <form id="add-book">
+    <form id="add-book" onSubmit={handleSubmit}>
       <div className="field">
         <label>Book name:</label>
-        <input type="text" />
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
       </div>
       <div className="field">
         <label>Genre:</label>
-        <input type="text" />
+        <input
+          type="text"
+          value={genre}
+          onChange={(e) => setGenre(e.target.value)}
+        />
       </div>
       <div className="field">
         <label>Author:</label>
-        <select>
+        <select value={authorId} onChange={(e) => setAuthorId(e.target.value)}>
           <option>Select author</option>
-          {displayAuthors()}
+          {displayAuthors(loading, data)}
         </select>
       </div>
       <button>+</button>
