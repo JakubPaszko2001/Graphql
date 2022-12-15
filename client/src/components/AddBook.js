@@ -44,6 +44,7 @@ const AddBook = () => {
       <div className="field">
         <label>Book name:</label>
         <input
+          required
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -52,6 +53,7 @@ const AddBook = () => {
       <div className="field">
         <label>Genre:</label>
         <input
+          required
           type="text"
           value={genre}
           onChange={(e) => setGenre(e.target.value)}
@@ -59,7 +61,11 @@ const AddBook = () => {
       </div>
       <div className="field">
         <label>Author:</label>
-        <select value={authorId} onChange={(e) => setAuthorId(e.target.value)}>
+        <select
+          required
+          value={authorId}
+          onChange={(e) => setAuthorId(e.target.value)}
+        >
           <option>Select author</option>
           {displayAuthors(loading, data)}
         </select>
