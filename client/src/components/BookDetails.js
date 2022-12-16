@@ -10,25 +10,30 @@ const BookDetails = ({ bookId }) => {
 
   let content;
 
-  if (loading) content = <p>Loading...</p>;
-  else if (error) content = <p>Error :</p>;
-  else if (!bookId) content = <p>No book selected</p>;
+  if (loading) content = <p className="booksContainer">Loading...</p>;
+  else if (error) content = <p className="booksContainer">Error :</p>;
+  else if (!bookId)
+    content = (
+      <div className="booksContainer">
+        <p className="title">No book selected...</p>
+      </div>
+    );
   else {
     const {
       book: { name, genre, author },
     } = data;
 
     const books = author.books.map(({ id, name }) => {
-      return <li key={id}>{name}</li>;
+      return <p key={id}>{name}</p>;
     });
     content = (
-      <>
+      <div className="booksContainer">
         <h2>{name}</h2>
         <p>{genre}</p>
         <p>{author.name}</p>
-        <p>All boooks by this author</p>
-        <ul className="other-books">{books}</ul>
-      </>
+        <p>All boooks by this author:</p>
+        {books}
+      </div>
     );
   }
 

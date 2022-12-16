@@ -40,38 +40,39 @@ const AddBook = () => {
   };
 
   return (
-    <form id="add-book" onSubmit={handleSubmit}>
-      <div className="field">
-        <label>Book name:</label>
-        <input
-          required
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
-      <div className="field">
-        <label>Genre:</label>
-        <input
-          required
-          type="text"
-          value={genre}
-          onChange={(e) => setGenre(e.target.value)}
-        />
-      </div>
-      <div className="field">
-        <label>Author:</label>
-        <select
-          required
-          value={authorId}
-          onChange={(e) => setAuthorId(e.target.value)}
-        >
-          <option>Select author</option>
-          {displayAuthors(loading, data)}
-        </select>
-      </div>
-      <button>+</button>
-    </form>
+    <div className="booksContainer">
+      <form id="add-book" onSubmit={handleSubmit}>
+        <div className="field">
+          <input
+            placeholder="Book Name..."
+            required
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <div className="field">
+          <input
+            placeholder="Genre..."
+            required
+            type="text"
+            value={genre}
+            onChange={(e) => setGenre(e.target.value)}
+          />
+        </div>
+        <div className="field">
+          <select
+            required
+            value={authorId}
+            onChange={(e) => setAuthorId(e.target.value)}
+          >
+            <option>Select author</option>
+            {displayAuthors(loading, data)}
+          </select>
+        </div>
+        <button>AddBook</button>
+      </form>
+    </div>
   );
 };
 

@@ -19,25 +19,29 @@ const AddAuthor = () => {
   };
 
   return (
-    <form id="add-author" onSubmit={handleSubmit}>
-      <div className="field">
-        <label>Author name:</label>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
-      <div className="field">
-        <label>Age:</label>
-        <input
-          type="text"
-          value={age}
-          onChange={(e) => setAge(e.target.value)}
-        />
-      </div>
-      <button>+</button>
-    </form>
+    <div className="booksContainer">
+      <form className="" onSubmit={handleSubmit}>
+        <div className="field">
+          <input
+            required
+            placeholder="Author name..."
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <div className="field">
+          <input
+            required
+            placeholder="Age..."
+            type="text"
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
+          />
+        </div>
+        <button>AddAuthor</button>
+      </form>
+    </div>
   );
 };
 

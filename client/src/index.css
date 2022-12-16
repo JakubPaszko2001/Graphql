@@ -2,9 +2,13 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: hsl(151, 100%, 65%);
+  background-color: hsl(238, 100%, 65%);
   overflow-x: hidden;
   font-family: "Krona One", sans-serif;
+}
+.title {
+  font-size: large;
+  margin-top: 2rem;
 }
 .booksContainer {
   width: 100vw;
@@ -25,6 +29,36 @@ body {
   box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
   max-width: 300px;
 }
-.title {
-  font-size: large;
+
+input {
+  max-width: 300px;
+}
+select {
+  max-width: 308px;
+}
+button {
+  max-width: 312px;
+}
+
+input,
+select,
+button {
+  text-decoration: none;
+  margin-top: 1rem;
+  width: 80vw;
+  height: 5rem;
+  background-color: hsl(13, 100%, 65%);
+  border: none;
+  border-radius: 10px;
+  border: black 4px solid;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+}
+input:focus {
+  outline: none;
+}
+input::placeholder {
+  color: black;
+}
+button {
+  margin-bottom: 2rem;
 }
