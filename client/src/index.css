@@ -2,4 +2,29 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: hsl(151, 100%, 65%);
+  overflow-x: hidden;
+  font-family: "Krona One", sans-serif;
+}
+.booksContainer {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.book {
+  width: 80%;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: black 4px solid;
+  margin-top: 1rem;
+  border-radius: 10px;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+  max-width: 300px;
+}
+.title {
+  font-size: large;
 }
