@@ -41,8 +41,8 @@ const AddBook = () => {
 
   return (
     <div className="booksContainer">
-      <form id="add-book" onSubmit={handleSubmit}>
-        <div className="field">
+      <form onSubmit={handleSubmit}>
+        <div>
           <input
             placeholder="Book Name..."
             required
@@ -51,7 +51,7 @@ const AddBook = () => {
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        <div className="field">
+        <div>
           <input
             placeholder="Genre..."
             required
@@ -60,7 +60,7 @@ const AddBook = () => {
             onChange={(e) => setGenre(e.target.value)}
           />
         </div>
-        <div className="field">
+        <div>
           <select
             required
             value={authorId}

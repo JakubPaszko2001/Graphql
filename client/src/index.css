@@ -30,34 +30,28 @@ body {
   max-width: 300px;
 }
 
-input {
-  max-width: 300px;
-}
-select {
-  max-width: 308px;
-}
-button {
-  max-width: 312px;
-}
-
 input,
 select,
 button {
+  width: 80vw;
+  max-width: 300px;
+  /* padding: 1rem 1.5rem; */
+  color: white;
   text-decoration: none;
   margin-top: 1rem;
-  width: 80vw;
+  /* width: 50vw; */
   height: 5rem;
-  background-color: hsl(13, 100%, 65%);
+  background-color: black;
   border: none;
+  padding: 0;
   border-radius: 10px;
-  border: black 4px solid;
-  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
 }
-input:focus {
+input:focus,
+select:focus {
   outline: none;
 }
 input::placeholder {
-  color: black;
+  color: white;
 }
 button {
   margin-bottom: 2rem;

@@ -20,8 +20,8 @@ const AddAuthor = () => {
 
   return (
     <div className="booksContainer">
-      <form className="" onSubmit={handleSubmit}>
-        <div className="field">
+      <form onSubmit={handleSubmit}>
+        <div>
           <input
             required
             placeholder="Author name..."
@@ -30,7 +30,7 @@ const AddAuthor = () => {
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        <div className="field">
+        <div>
           <input
             required
             placeholder="Age..."

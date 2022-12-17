@@ -16,8 +16,8 @@ function App() {
     <div className="App">
       <ApolloProvider client={client}>
         <BookList />
-        <AddAuthor />
         <AddBook />
+        <AddAuthor />
       </ApolloProvider>
     </div>
   );
